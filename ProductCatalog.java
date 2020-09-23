@@ -23,6 +23,7 @@ public class ProductCatalog {
         if (ids.contains(product.getId())) {
             if (product.getName().equals("")) throw new ProductNotValid("Name is not set");
             catalog.add(ids.indexOf(product.getId()), product);
+            catalog.remove(ids.indexOf(product.getId())+1);
         } else throw new ProductNotFound("Product doesn't exist");
     }
 
