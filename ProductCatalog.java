@@ -11,8 +11,10 @@ public class ProductCatalog {
     }
 
     public void createProduct(Product product) throws ProductAlreadyExists {
-        if (catalog.indexOf(product) != -1) throw new ProductAlreadyExists("Product already exists");
-        else catalog.add(product);
+        for (Product catalogProduct: catalog){
+            if (catalogProduct.getName().equals(product.getName())) throw new ProductAlreadyExists("Product already exists");
+        }
+        catalog.add(product);
     }
 
     public void updateProduct(Product product) throws ProductNotValid {
